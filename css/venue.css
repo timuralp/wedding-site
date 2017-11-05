@@ -1,0 +1,13 @@
+.transit-text {
+    margin-top: 5px;
+}
+
+.transit-logo {
+    background-color: rgba(255, 255, 255, 1);
+    height: 64px;
+    width: auto;
+}
+
+body {
+    padding-top: 56px;
+}
