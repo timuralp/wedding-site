@@ -1,3 +1,11 @@
+body {
+padding-top: 56px;
+}
+
+.navbar {
+background-color: rgba(200, 200, 200, 0.7);
+}
+
 .transit-text {
     margin-top: 5px;
 }
@@ -6,8 +14,4 @@
     background-color: rgba(255, 255, 255, 1);
     height: 64px;
     width: auto;
-}
-
-body {
-    padding-top: 56px;
 }
