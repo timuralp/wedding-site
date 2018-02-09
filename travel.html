@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/bootstrap-4.0.0-dist/css/bootstrap.min.css">
         <script src="/js/jquery-3.1.1.slim.min.js"></script>
         <script src="/js/tether.min.js"></script>
-        <script src="/bootstrap-4.0.0-alpha.6-dist/js/bootstrap.min.js"></script>
+        <script src="/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
         <link href="/css/cover.css" rel="stylesheet">
         <link href="/css/content-img.css" rel="stylesheet">
         <title>Timur & Alyssa: Travel</title>
     </head>
     
-    <body style="background: url('/img/SF-union-sq.jpg') no-repeat center center fixed; background-size: cover">
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top">
+    <body style="background-image: url('/img/SF-union-sq.jpg')" class="background">
+        <nav class="navbar navbar-expand-md navbar-light bg-faded fixed-top">
             <a class="navbar-brand" href="/">Alyssa and Timur</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                     data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,17 +22,16 @@
                     <li class="nav-item"><a class="nav-link" href="/venue.html">Venue</a></li>
       	            <li class="nav-item"><a class="nav-link" href="/wedding_party.html">Wedding party</a></li>
       	            <li class="nav-item active"><a class="nav-link" href="/travel.html">Travel</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">RSVP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/hotel.html">Hotel stay</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/rsvp.html">RSVP</a></li>
                 </ul>
             </div>
       	</nav>
 	    <div class="site-wrapper">
-            <div class="site-wrapper-inner"
-                    style="background-color: rgba(0, 0, 0, 0.75);">
-                <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-4"
-                        style="margin-top: 10px; padding-top: 5px;">
+            <div class="site-wrapper-inner">
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
                         <h3 class="text-center">Getting to San Francisco</h3>
                         <p><img src="/img/airplane.svg" width="64px">
 
@@ -41,22 +40,22 @@
                             <li>Oakland International Airport (OAK)</li>
                         </ul>
 
-                        <p>Both are served by the BART, as well as have
-                        Cab/Uber/Lyft pick up areas. Depending on your arrival
+                        <p class="text-left">Both are served by the BART, as well as have
+                        taxi/Uber/Lyft pick up areas. Depending on your arrival
                         time, the BART may be the fastest way to go, especially
                         if flying into Oakland as rush hour traffic across the
                         Oakland Bay Bridge can cause significant delays.
-                    </div><div class="col-4"></div>
+                    </div><div class="col-md-4"></div>
                 </div>
                 <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-4"
-                        style="margin-top: 10px; padding-top: 5px;
-                        class="text-center"">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"
+                        class="text-left">
                         <h3>Using the BART</h3>
-                            <img src="/img/bart.svg" width="64px"
-                            style="background-color: rgba(255,255,255, 1.0)">
-                        <p>BART requires a ticket to enter <b>and</b> leave the
+                        <img src="/img/bart.svg" width="64px"
+                            style="background-color: rgba(255,255,255, 1.0);
+                            margin-bottom: 5px; margin-top: 5px;">
+                        <p class="text-left">BART requires a ticket to enter <b>and</b> leave the
                         system -- make sure to hold onto the ticket. The vending
                         machines take cash or credit. The fares to downtown San
                         Francisco are:
@@ -66,10 +65,10 @@
                         </ul>
                         <h2>Getting to the BART Station</h2>
                         <p>
-                    </div><div class="col-4"></div>
+                    </div><div class="col-md-4"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h3>San Francisco Airport</h3>
                         <ol class="text-left">
                             <li>Upon exiting the secured area, follow signs to
@@ -83,7 +82,7 @@
                             (the far right platform)</li>
                         </ol>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6" style="padding-bottom: 10px;">
                         <h3>Oakland Airport</h3>
                         <ol class="text-left">
                             <li>Follow signs for the luggage claim.</li>
@@ -94,6 +93,17 @@
                             <li>Transfer there onto the Daly City train to get
                             to San Francisco.</li>
                         </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Taxi/Uber/Lyft</h3>
+                        <p>Both airports have pickup areas for the
+                        taxi/Uber/Lyft. From San Francisco Airport:
+                        <ul class="text-left" style="display: inline-block">
+                            <li>Taxi: ~$50-55 with tip</li>
+                            <li>Lyft/Uber: $30</li>
+                        </ul>
                     </div>
                 </div>
             </div>

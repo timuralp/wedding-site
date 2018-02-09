@@ -10,12 +10,21 @@
 
 html,
 body {
-  color: #fff;
+  color: #e4e4e4;
+  font-weight: 450;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
   height: 100%;
   width: 100%;
   background-size: cover;
+}
+
+a {
+    color: #5b8fc5;
+}
+
+a:hover {
+    color: #507dad;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -28,9 +37,10 @@ body {
 .site-wrapper-inner {
   display: table-cell;
   vertical-align: top;
-  padding-top: 0.5rem;
+  padding-top: 2rem;
   padding-right: 2rem;
   padding-left: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .navbar {

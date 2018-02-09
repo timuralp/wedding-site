@@ -1,5 +1,13 @@
-.party-img {
+.party-img-left {
     width: 200px;
+    padding: 1em;
+    float: left;
+}
+
+.party-img-right {
+    width: 200px;
+    padding: 1em;
+    float: right;
 }
 
 .party-row {
@@ -7,5 +15,21 @@
 }
 
 .navbar {
-    background-color: rgba(200, 200, 200, 0.7);
-};
+    background-color: rgba(200, 200, 200, 0.85);
+}
+
+.left-column {
+    border-width: 2px;
+    border-right-style: solid;
+    text-align: left;
+}
+
+.right-column {
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .left-column {border-right-style: none;}
+    .right-column {text-align: left; padding-top: 1em;}
+    .party-img-right {float: left;}
+}
