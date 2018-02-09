@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+        <script src="/js/jquery-3.1.0.js"></script>
+        <script src="/js/tether.min.js"></script>
+        <script src="/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+        <link href="/css/cover.css" rel="stylesheet">
+        <link href="/css/content-img.css" rel="stylesheet">
+        <link href="/css/rsvp.css" rel="stylesheet">
+        <script src="/js/rsvp.js"></script>
+        <title>Timur & Alyssa: RSVP</title>
+    </head>
+    
+    <body style="background-image: url('/img/ferry-bldg.jpg')" class="background">
+        <nav class="navbar navbar-expand-md navbar-light bg-faded fixed-top">
+            <a class="navbar-brand" href="/">Alyssa and Timur</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto justify-content-end">
+                    <li class="nav-item"><a class="nav-link" href="/venue.html">Venue</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/wedding_party.html">Wedding party</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/travel.html">Travel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/hotel.html">Hotel stay</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="#">RSVP</a></li>
+                </ul>
+            </div>
+      	</nav>
+        <div class="modal" id="submit_modal" role="dialog" tabindex=-1>
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content success-modal">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Success</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="modal-message"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	    <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div id="form-container" class="col-md-6 offset-3 rounded">
+                    <div class="row first-row">
+                        <div class="col">
+                            <h4>We would love to have you join us at our
+                            wedding!</h4>
+                            <h5>Please RSVP by May 11th.</h5>
+                        </div>
+                    </div>
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label text-right">Name</label>
+                            <div class="col">
+                                <input type="text" class="form-control"
+                                 id="firstName" placeholder="First name">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control"
+                                id="lastName" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="form-group row prompt rsvp">
+                            <label class="col col-form-label">Will you be
+                            able to attend our wedding?</label>
+                        </div>
+                        <div class="form-group row prompt rsvp">
+                            <div class="col">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary">
+                                        <input  type="radio" name="rsvp" id="rsvpYes" value="yes" autocomplete="off">
+                                        Yes
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <input type="radio" name="rsvp" id="rsvpNo" value="no" autocomplete="off">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row prompt entree">
+                            <label class="col col-form-label">Dinner entr&eacute;e: </label>
+                        </div>
+                        <div class="form-group row prompt entree">
+                            <div class="col">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary">
+                                        <input  type="radio" name="entree" id="entreeChicken" value="chicken" autocomplete="off">
+                                        Chicken Breast
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <input type="radio" name="entree" id="entreeSalmon" value="salmon" autocomplete="off">
+                                        Grilled Salmon
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <input type="radio" name="entree" id="entreeVeggie" value="veggie" autocomplete="off">
+                                        Rolled Spinach Soufl&eacute;
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row prompt rehearsal">
+                            <label class="col col-form-label">Would you be
+                            able to attend the rehearsal dinner on Friday
+                            (August 10th) at 7 pm?</label>
+                        </div>
+                        <div class="form-group row prompt rehearsal">
+                            <div class="col">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary">
+                                        <input  type="radio" name="rehearsalResp" id="rehearsalYes" value="yes" autocomplete="off">
+                                        Yes
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <input type="radio" name="rehearsalResp" id="rehearsalNo" value="no" autocomplete="off">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row prompt brunch">
+                            <label class="col col-form-label">Would you be
+                            able to attend a brunch on Sunday (August 12th)?</label>
+                        </div>
+                        <div class="form-group row prompt brunch">
+                            <div class="col">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary">
+                                        <input  type="radio" name="brunch" id="brunchYes" value="yes" autocomplete="off">
+                                        Yes
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <input type="radio" name="brunch" id="brunchNo" value="no" autocomplete="off">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row prompt guest">
+                            <label class="col col-form-label">Will you be bringing a guest?</label>
+                        </div>
+                        <div class="form-group row prompt guest">
+                            <div class="col">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary">
+                                        <input  type="radio" name="guest" id="guestYes" value="yes" autocomplete="off">
+                                        Yes
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <input type="radio" name="guest" id="guestNo" value="no" autocomplete="off">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row prompt guestEntree">
+                            <label class="col col-form-label">Guest's dinner entr&eacute;e: </label>
+                        </div>
+                        <div class="form-group row prompt guestEntree">
+                            <div class="col">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary">
+                                        <input  type="radio" name="guestEntree" id="guestEntreeChicken" value="chicken" autocomplete="off">
+                                        Chicken Breast
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <input type="radio" name="guestEntree" id="guestEntreeSalmon" value="salmon" autocomplete="off">
+                                        Grilled Salmon
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <input type="radio" name="guestEntree" id="guestEntreeVeggie" value="veggie" autocomplete="off">
+                                        Rolled Spinach Soufl&eacute;
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col mx-auto">
+                                <button type="button" class="btn btn-primary"
+                                 id="submit" data-state='INIT'>Look-up invitation</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
