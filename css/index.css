@@ -1,19 +1,24 @@
-.cover-heading {
-    font-family: 'Great Vibes', cursive;
-}
-
 body {
     overflow: hidden;
 }
 
-@media only screen and (min-width: 1000px) {
-    h1 {font-size: 5rem;}
-    h3 {font-size: 2.9rem;}
-    p {font-size: 1.7rem;}
+.site-wrapper {
+    background-color: transparent;
 }
 
-@media only screen and (max-width: 1000px) and (orientation: portrait) {
-    h1 {font-size: 5.5em; color: #B22222;}
-    h3 {font-size: 4.5rem; color: #B22222;}
-    p {font-size: 4rem; color: #B22222;}
+h1 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+p.heading {
+    font-size: 2rem;
+}
+
+#countdown {
+    background-color: rgba(48, 148, 158, 0.45);
+    display: inline-block;
 }
