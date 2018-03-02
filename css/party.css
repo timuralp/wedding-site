@@ -1,21 +1,23 @@
 .party-img-left {
     width: 200px;
-    padding: 1em;
+    margin: 1em;
     float: left;
+    border-width: 0.25rem;
+    border-style: solid;
+    border-color: #bf9f00;
 }
 
 .party-img-right {
     width: 200px;
-    padding: 1em;
+    margin: 1em;
     float: right;
+    border-width: 0.25rem;
+    border-style: solid;
+    border-color: #f39b17;
 }
 
 .party-row {
     padding-top: 1em;
-}
-
-.navbar {
-    background-color: rgba(200, 200, 200, 0.85);
 }
 
 .left-column {
@@ -28,8 +30,9 @@
     text-align: right;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) and (orientation: portrait) {
     .left-column {border-right-style: none;}
     .right-column {text-align: left; padding-top: 1em;}
     .party-img-right {float: left;}
+    .party-heading {display: none;}
 }

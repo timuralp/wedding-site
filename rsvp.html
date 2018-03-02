@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Timur & Alyssa: RSVP</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/bootstrap-4.0.0-dist/css/bootstrap.min.css">
-        <script src="/js/jquery-3.1.0.js"></script>
+        <script src="/js/jquery-3.2.1.min.js"></script>
         <script src="/js/tether.min.js"></script>
         <script src="/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
         <link href="/css/cover.css" rel="stylesheet">
-        <link href="/css/content-img.css" rel="stylesheet">
-        <link href="/css/rsvp.css" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+        <link rel="manifest" href="/img/site.webmanifest">
+        <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
         <script src="/js/rsvp.js"></script>
-        <title>Timur & Alyssa: RSVP</title>
     </head>
     
-    <body style="background-image: url('/img/ferry-bldg.jpg')" class="background">
-        <nav class="navbar navbar-expand-md navbar-light bg-faded fixed-top">
-            <a class="navbar-brand" href="/">Alyssa and Timur</a>
+    <body style="background-image: url('/img/bg/rsvp.jpg')" class="background">
+        <nav class="navbar navbar-expand-xl navbar-light bg-faded fixed-top">
+            <a class="navbar-brand" href="/"><img src="/img/favicon-32x32.png"; class="logo">&nbsp;Alyssa and Timur</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                     data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto justify-content-end">
-                    <li class="nav-item"><a class="nav-link" href="/venue.html">Venue</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/story.html">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link" href="/wedding_party.html">Wedding party</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/travel.html">Travel</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/hotel.html">Hotel stay</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="#">RSVP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/venue.html">Venue</a></li>
+      	            <li class="nav-item"><a class="nav-link" href="/travel.html">Travel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/hotel.html">Accommodations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/schedule.html">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/things_todo.html">Things To Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/registry.html">Registry</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="/rsvp.html">RSVP</a></li>
                 </ul>
             </div>
       	</nav>
@@ -49,39 +59,50 @@
         </div>
 	    <div class="site-wrapper">
             <div class="site-wrapper-inner">
-                <div id="form-container" class="col-md-6 offset-3 rounded">
+                <div id="form-container" class="col-md-8 offset-md-2 col-xl-6 offset-xl-3 rounded">
                     <div class="row first-row">
                         <div class="col">
-                            <h4>We would love to have you join us at our
-                            wedding!</h4>
-                            <h5>Please RSVP by May 11th.</h5>
+                            <img src="/img/logo2.png">
+                            <h2>We would love to have you join us at our
+                            wedding!</h2>
+                            <h3>Please respond by May 11th.</h3>
                         </div>
                     </div>
                     <form>
                         <div class="form-group row">
-                            <label class="col-2 col-form-label text-right">Name</label>
-                            <div class="col">
+                            <label class="col-3 col-form-label text-right">Name</label>
+                            <div class="col-4">
                                 <input type="text" class="form-control"
-                                 id="firstName" placeholder="First name">
+                                 id="firstName" placeholder="First name" required>
                             </div>
-                            <div class="col">
+                            <div class="col-4">
                                 <input type="text" class="form-control"
-                                id="lastName" placeholder="Last name">
+                                id="lastName" placeholder="Last name" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label text-right">Your street number</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control"
+                                 id="address" placeholder="Ex: 221" required>
+                            </div>
+                        </div>
+                        <div class="row pt-0">
+                            <div class="col offset-2 alert alert-danger" role="alert">
                             </div>
                         </div>
                         <div class="form-group row prompt rsvp">
-                            <label class="col col-form-label">Will you be
-                            able to attend our wedding?</label>
+                            <label class="col col-form-label">Will you be able to attend our wedding?</label>
                         </div>
                         <div class="form-group row prompt rsvp">
                             <div class="col">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-secondary">
-                                        <input  type="radio" name="rsvp" id="rsvpYes" value="yes" autocomplete="off">
+                                        <input  type="radio" name="rsvp" id="rsvpYes" value="yes" autocomplete="off" required disabled>
                                         Yes
                                     </label>
                                     <label class="btn btn-secondary">
-                                        <input type="radio" name="rsvp" id="rsvpNo" value="no" autocomplete="off">
+                                        <input type="radio" name="rsvp" id="rsvpNo" value="no" autocomplete="off" disabled>
                                         No
                                     </label>
                                 </div>
@@ -94,15 +115,15 @@
                             <div class="col">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-secondary">
-                                        <input  type="radio" name="entree" id="entreeChicken" value="chicken" autocomplete="off">
+                                        <input  type="radio" name="entree" id="entreeChicken" value="chicken" autocomplete="off" disabled required>
                                         Chicken Breast
                                     </label>
                                     <label class="btn btn-secondary">
-                                        <input type="radio" name="entree" id="entreeSalmon" value="salmon" autocomplete="off">
+                                        <input type="radio" name="entree" id="entreeSalmon" value="salmon" autocomplete="off" disabled>
                                         Grilled Salmon
                                     </label>
                                     <label class="btn btn-secondary">
-                                        <input type="radio" name="entree" id="entreeVeggie" value="veggie" autocomplete="off">
+                                        <input type="radio" name="entree" id="entreeVeggie" value="veggie" autocomplete="off" disabled>
                                         Rolled Spinach Soufl&eacute;
                                     </label>
                                 </div>
@@ -117,11 +138,11 @@
                             <div class="col">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-secondary">
-                                        <input  type="radio" name="rehearsalResp" id="rehearsalYes" value="yes" autocomplete="off">
+                                        <input  type="radio" name="rehearsalResp" id="rehearsalYes" value="yes" autocomplete="off" disabled required>
                                         Yes
                                     </label>
                                     <label class="btn btn-secondary">
-                                        <input type="radio" name="rehearsalResp" id="rehearsalNo" value="no" autocomplete="off">
+                                        <input type="radio" name="rehearsalResp" id="rehearsalNo" value="no" disabled autocomplete="off">
                                         No
                                     </label>
                                 </div>
@@ -135,11 +156,11 @@
                             <div class="col">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-secondary">
-                                        <input  type="radio" name="brunch" id="brunchYes" value="yes" autocomplete="off">
+                                        <input  type="radio" name="brunch" id="brunchYes" value="yes" autocomplete="off" disabled required>
                                         Yes
                                     </label>
                                     <label class="btn btn-secondary">
-                                        <input type="radio" name="brunch" id="brunchNo" value="no" autocomplete="off">
+                                        <input type="radio" name="brunch" id="brunchNo" value="no" autocomplete="off" disabled>
                                         No
                                     </label>
                                 </div>
@@ -152,11 +173,11 @@
                             <div class="col">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-secondary">
-                                        <input  type="radio" name="guest" id="guestYes" value="yes" autocomplete="off">
+                                        <input  type="radio" name="guest" id="guestYes" value="yes" autocomplete="off" required disabled>
                                         Yes
                                     </label>
                                     <label class="btn btn-secondary">
-                                        <input type="radio" name="guest" id="guestNo" value="no" autocomplete="off">
+                                        <input type="radio" name="guest" id="guestNo" value="no" autocomplete="off" disabled>
                                         No
                                     </label>
                                 </div>
@@ -169,15 +190,15 @@
                             <div class="col">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-secondary">
-                                        <input  type="radio" name="guestEntree" id="guestEntreeChicken" value="chicken" autocomplete="off">
+                                        <input  type="radio" name="guestEntree" id="guestEntreeChicken" value="chicken" autocomplete="off" required disabled>
                                         Chicken Breast
                                     </label>
                                     <label class="btn btn-secondary">
-                                        <input type="radio" name="guestEntree" id="guestEntreeSalmon" value="salmon" autocomplete="off">
+                                        <input type="radio" name="guestEntree" id="guestEntreeSalmon" value="salmon" autocomplete="off" disabled>
                                         Grilled Salmon
                                     </label>
                                     <label class="btn btn-secondary">
-                                        <input type="radio" name="guestEntree" id="guestEntreeVeggie" value="veggie" autocomplete="off">
+                                        <input type="radio" name="guestEntree" id="guestEntreeVeggie" value="veggie" autocomplete="off" disabled>
                                         Rolled Spinach Soufl&eacute;
                                     </label>
                                 </div>
@@ -185,7 +206,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col mx-auto">
-                                <button type="button" class="btn btn-primary"
+                                <button type="submit" class="btn btn-primary"
                                  id="submit" data-state='INIT'>Look-up invitation</button>
                             </div>
                         </div>

@@ -20,7 +20,8 @@ class Guest(object):
 
     def __init__(self, first=None, last=None, rehearsal_invite=None,
                  entree=None, rsvp=None, rehearsal_rsvp=None, brunch=None,
-                 guest_allowed=None, guest=None, guest_entree=None):
+                 guest_allowed=None, guest=None, guest_entree=None,
+                 address=None):
         for name, value in locals().items():
             if name == 'self':
                 continue
@@ -73,13 +74,16 @@ def handle_post():
     headers = [('Access-Control-Allow-Origin', 'http://localhost')]
     first = request.form.get('first')
     last = request.form.get('last')
-    if not first or not last:
+    address = request.form.get('address')
+    if not first or not last or not address:
         return ('Invalid name', 400, headers)
     ddb = boto3.client('dynamodb', endpoint_url='http://localhost:8000')
     resp = ddb.get_item(TableName=TABLE_NAME,
                         Key={'first': {'S': first}, 'last': {'S': last}})
     guest = Guest.from_ddb(resp)
     if guest is None:
+        return ('No such guest', 404, headers)
+    if guest.address.lower() != address.lower():
         return ('No such guest', 404, headers)
     required = ['rsvp', 'entree', 'brunch']
     if guest.rehearsal_invite:
@@ -97,7 +101,7 @@ def handle_post():
             guest.rehearsal_rsvp = toBool(request.form['rehearsalResp'])
         elif field == 'guestEntree':
             if request.form['guestEntree'] not in Guest.ENTREE_LIST:
-                return ('Invalid entree', 400, headers)
+                return ('Invalid guest entree', 400, headers)
             guest.guest_entree = request.form['guestEntree']
         else:
             if field in Guest.FIELD_MAP:
@@ -118,15 +122,17 @@ def handle_post():
 def get_guest():
     first = request.args.get('first')
     last = request.args.get('last')
+    address = request.args.get('address')
     headers = [('Access-Control-Allow-Origin', 'http://localhost')]
-    if not first or not last:
+    if not first or not last or not address:
         return ('Missing first or last name', 404, headers)
 
     ddb = boto3.client('dynamodb', endpoint_url='http://localhost:8000')
     resp = ddb.get_item(TableName=TABLE_NAME,
                         Key={'first': {'S': first}, 'last': {'S': last}})
     guest = Guest.from_ddb(resp)
-    if guest is None:
+    print address, guest.address
+    if guest is None or guest.address.lower() != address.lower():
         return ('No such guest', 404, headers)
     return (json.dumps({
         'first': guest.first,
@@ -138,4 +144,5 @@ def get_guest():
         'brunch': guest.brunch,
         'guestAsk': guest.guest_allowed,
         'guest': guest.guest,
-        'guestEntree': guest.guest_entree}), headers)
+        'guestEntree': guest.guest_entree,
+        'address': guest.address}), headers)

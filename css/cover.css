@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Great Vibes';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Great Vibes'), local('GreatVibes-Regular'), url(/fonts/great-vibes.ttf) format('truetype');
+}
+
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
@@ -11,12 +18,39 @@
 html,
 body {
   color: #e4e4e4;
-  font-weight: 450;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
   height: 100%;
   width: 100%;
-  background-size: cover;
+}
+
+.background {
+    margin-top: 56px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+nav {
+    background-color: rgba(200, 200, 200, 0.7);
+}
+
+.transit-text {
+    margin-top: 5px;
+}
+
+.transit-logo {
+    background-color: rgba(255, 255, 255, 1);
+    height: 64px;
+    width: auto;
+}
+
+.charity-logo {
+    background-color: rgba(255, 255, 255, 1);
+    height: 128px;
+    width: auto;
+    margin: 1rem;
 }
 
 a {
@@ -27,22 +61,76 @@ a:hover {
     color: #507dad;
 }
 
+h1,h2,h3,h4,h5,.heading {
+  font-family: 'Great Vibes', cursive;
+}
+
+.paragraph-heading {
+  font-size: 2rem;
+  font-family: 'Great Vibes', cursive, bold;
+}
+
+.dict-def {
+  font-family: monospace;
+  font-size: 1.25rem;
+}
+
+.logo {
+    background-color: rgba(255, 255, 240, 0.7);
+    width: 26px;
+}
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .site-wrapper-inner {
   display: table-cell;
   vertical-align: top;
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-right: 2rem;
   padding-left: 2rem;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.navbar {
-    background-color: rgba(255, 255, 255, 0.5);
+.prompt {
+    display: none;
+}
+
+.alert-danger {
+    display: none;
+    text-shadow: none;
+}
+
+#form-container {
+    background-color: rgba(114, 160, 187, 0.60);
+}
+
+.first-row {
+    padding-top: 1.5em;
+}
+
+form {
+    padding-top: 2em;
+    padding-bottom: 0.2em;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.success-modal {
+    background: rgba(0, 9, 51, 0.9);
+}
+
+.carousel-img {
+    border-width: 0.25rem;
+    border-style: solid;
+    border-color: #ffffff;
+    margin: auto;
+}
+
+.engagement-carousel {
+    display: none;
 }

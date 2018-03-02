@@ -17,14 +17,19 @@ function getAttendee(success_func) {
         type: 'GET',
         data: {
             'first': $('#firstName').val(),
-            'last': $('#lastName').val()
+            'last': $('#lastName').val(),
+            'address': $('#address').val()
         },
         success: function(data, reqStatus, xhr) {
             success_func($.parseJSON(data));
         },
         error: function(xhr, reqStatus, error) {
-            // TODO: show an error if we can't find a guest
-            console.log('error: ' + error);
+            console.log(xhr);
+            console.log(reqStatus);
+            if (xhr.status === 404) {
+                $('.alert-danger').html('Please double check your name and street address');
+                $('.alert-danger').show();
+            }
         }
     });
 }
@@ -57,17 +62,20 @@ function toRadioName(val) {
     }
 }
 
-function showField(prefix, value) {
-    $('.' + prefix).find('.btn').removeClass('active');
-    if (value !== null) {
-        $('#' + prefix + toRadioName(value)).parent().addClass('active');
-        $('#' + prefix + toRadioName(value)).prop('checked', true);
+function showField(prefix, attendee, key) {
+    console.log(prefix, attendee, key);
+    if (key in attendee && attendee[key] !== null) {
+        console.log(attendee[key]);
+        $('.' + prefix).find('.btn').removeClass('active');
+        $('#' + prefix + toRadioName(attendee[key])).parent().addClass('active');
+        $('#' + prefix + toRadioName(attendee[key])).prop('checked', true);
     }
     $('.prompt.' + prefix).css({display: 'flex'});
+    $('.prompt.' + prefix + ' input').prop('disabled', false);
 }
 
 function showFields(attendee) {
-    showField('rsvp', attendee.rsvp);
+    showField('rsvp', attendee, 'rsvp');
     if (attendee.rsvp === null || attendee.rsvp === false) {
         $('.prompt.entree').hide();
         $('.prompt.rehearsal').hide();
@@ -77,16 +85,16 @@ function showFields(attendee) {
         return;
     }
 
-    showField('entree', attendee.entree);
+    showField('entree', attendee, 'entree');
     if (attendee.rehearsalAsk === true) {
-        showField('rehearsal', attendee.rehearsal);
+        showField('rehearsal', attendee, 'rehearsalResp');
     }
-    showField('brunch', attendee.brunch);
+    showField('brunch', attendee, 'brunch');
 
     if (attendee.guestAsk === true) {
-        showField('guest', attendee.guest);
+        showField('guest', attendee, 'guest');
         if (attendee.guest === true) {
-            showField('guestEntree', attendee.guestEntree);
+            showField('guestEntree', attendee, 'guestEntree');
         } else {
             $('.prompt.guestEntree').hide();
         }
@@ -94,19 +102,23 @@ function showFields(attendee) {
 }
 
 function resetForm() {
-    $('.prompt.rsvp').hide();
-    $('.prompt.entree').hide();
-    $('.prompt.rehearsal').hide();
-    $('.prompt.brunch').hide();
-    $('.prompt.guest').hide();
-    $('.prompt.guestEntree').hide();
+    $('form')[0].reset();
+    $('.prompt').hide();
+    $('.prompt input').prop('disabled', true);
     $('.btn-secondary').removeClass('active');
+    $('.alert-danger').hide();
 }
 
 $(document).ready(function() {
     var attendee = null;
 
-    $('#submit').on('click', function() {
+    $('#submit').on('click', function(event) {
+        if (!$('form')[0].checkValidity()) {
+            return;
+        }
+
+        event.preventDefault();
+
         if ($('#submit').data('state') === 'INIT') {
             getAttendee(function(resp) {
                 attendee = resp;
@@ -134,8 +146,6 @@ $(document).ready(function() {
         resetForm();
         $('#submit').data('state', 'INIT');
         $('#submit').html(STATE_ENUM.INIT);
-        $('#firstName').val('');
-        $('#lastName').val('');
     });
 
     $('.prompt.rsvp').find('.btn').on('click', function() {
@@ -159,9 +169,24 @@ $(document).ready(function() {
     });
 
     $('#firstName').on('change', function() {
+        $('.alert-danger').hide();
+        var firstName = $(this).val();
         if (firstName !== null && attendee !== null && firstName !== attendee.firstName) {
             attendee = null;
             resetForm();
+            $('#firstName').val(firstName);
+            $('#submit').data('state', 'INIT');
+            $('#submit').html(STATE_ENUM.INIT);
+        }
+    });
+
+    $('#lastName').on('change', function() {
+        $('.alert-danger').hide();
+        var lastName = $(this).val();
+        if (lastName !== null && attendee !== null && lastName !== attendee.lastName) {
+            attendee = null;
+            resetForm();
+            $('#lastName').val(lastName);
             $('#submit').data('state', 'INIT');
             $('#submit').html(STATE_ENUM.INIT);
         }
