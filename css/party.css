@@ -37,7 +37,10 @@
 @media screen and (max-width: 813px) {
     .left-column {border-right-style: none;}
     .right-column {text-align: left; padding-top: 1em;}
-    .party-img-right {float: left;}
+    .party-img-right {float: none; margin-left: auto; margin-right: auto; display: block;}
+    .party-img-left {float: none; margin-left: auto; margin-right: auto; display: block;}
+    h3 {text-align: center;}
+    .blurb {text-align: center;}
     .party-heading {display: none;}
     .blurb {clear: both}
 }
