@@ -3,22 +3,35 @@ body {
 }
 
 .site-wrapper {
-    background-color: transparent;
-}
-
-h1 {
-    font-size: 4rem;
-}
-
-h3 {
-    font-size: 2.5rem;
+    background-color: rgba(0,0,0, 0.25);
 }
 
 p.heading {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 #countdown {
-    background-color: rgba(48, 148, 158, 0.45);
     display: inline-block;
+}
+
+body {
+    background-image: url('/img/bg/index.jpg');
+}
+
+@media screen and (max-width: 760px) {
+    body { background-image: url('/img/engagement/img-47s.jpg'); }
+}
+
+@media screen and (min-width: 1025px) {
+    h1 { font-size: 3.5rem; }
+    h3 { font-size: 2.5rem; }
+    p.heading { font-size: 2.5rem; }
+    p { font-size: 1.5rem; }
+}
+
+@media screen and (min-width: 2560px) {
+    h1 { font-size: 4rem; }
+    h3 { font-size: 3rem; }
+    p.heading { font-size: 2.5rem; }
+    p { font-size: 1.5rem; }
 }
