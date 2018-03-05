@@ -30,9 +30,14 @@
     text-align: right;
 }
 
-@media screen and (max-width: 768px) and (orientation: portrait) {
+.blurb {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 813px) {
     .left-column {border-right-style: none;}
     .right-column {text-align: left; padding-top: 1em;}
     .party-img-right {float: left;}
     .party-heading {display: none;}
+    .blurb {clear: both}
 }

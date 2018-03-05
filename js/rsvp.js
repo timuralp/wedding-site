@@ -13,21 +13,24 @@ function checkFields() {
 
 function getAttendee(success_func) {
     $.ajax({
-        url: 'http://localhost:5000/guest',
+        url: API_URL,
         type: 'GET',
         data: {
             'first': $('#firstName').val(),
             'last': $('#lastName').val(),
-            'address': $('#address').val()
+            'address': $('#address').val(),
+        },
+        headers: {
+            'x-api-key': API_KEY
         },
         success: function(data, reqStatus, xhr) {
-            success_func($.parseJSON(data));
+            success_func(data);
         },
         error: function(xhr, reqStatus, error) {
             console.log(xhr);
             console.log(reqStatus);
             if (xhr.status === 404) {
-                $('.alert-danger').html('Please double check your name and street address');
+                $('.alert-danger').html('Please double check your name and street number');
                 $('.alert-danger').show();
             }
         }
@@ -35,16 +38,21 @@ function getAttendee(success_func) {
 }
 
 function submitAttendee(attendee, success_func) {
-    var data = {first: attendee.first, last: attendee.last};
+    var data = {first: attendee.first,
+                last: attendee.last,
+                address: attendee.address};
     var formData = $('form').serializeArray();
     for (var i = 0; i < formData.length; i++) {
         data[formData[i].name] = formData[i].value;
     }
 
     $.ajax({
-        url: 'http://localhost:5000/guest',
+        url: API_URL,
+        headers: {
+            'x-api-key': API_KEY
+        },
         type: 'POST',
-        data: data,
+        data: JSON.stringify(data),
         success: function(data, reqStatus, xhr) {
             success_func();
         },
