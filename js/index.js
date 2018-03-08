@@ -37,7 +37,5 @@ $(document).ready(function() {
         setTimeout(countdownFunc, 1000);
     };
 
-    if (window.screen.width * window.devicePixelRatio > 1200) {
-        countdownFunc();
-    }
+    countdownFunc();
 });
