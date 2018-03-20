@@ -12,6 +12,7 @@ function checkFields() {
 }
 
 function getAttendee(success_func) {
+    $('.alert-danger').hide();
     $.ajax({
         url: API_URL,
         type: 'GET',
@@ -46,13 +47,25 @@ function submitAttendee(attendee, success_func) {
         data[formData[i].name] = formData[i].value;
     }
 
+    if ('partner' in data) {
+        if (data.partner === 'no') {
+            delete data.partnerRSVP;
+            delete data.partnerEntree;
+        } else {
+            data.partnerFirst = attendee.partner.first;
+            data.partnerLast = attendee.partner.last;
+        }
+        delete data.partner;
+    }
+
     $.ajax({
         url: API_URL,
         headers: {
-            'x-api-key': API_KEY
+            'x-api-key': API_KEY,
         },
         type: 'POST',
         data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
         success: function(data, reqStatus, xhr) {
             success_func();
         },
@@ -71,15 +84,49 @@ function toRadioName(val) {
 }
 
 function showField(prefix, attendee, key) {
-    console.log(prefix, attendee, key);
     if (key in attendee && attendee[key] !== null) {
-        console.log(attendee[key]);
         $('.' + prefix).find('.btn').removeClass('active');
         $('#' + prefix + toRadioName(attendee[key])).parent().addClass('active');
         $('#' + prefix + toRadioName(attendee[key])).prop('checked', true);
     }
     $('.prompt.' + prefix).css({display: 'flex'});
     $('.prompt.' + prefix + ' input').prop('disabled', false);
+}
+
+function showPartnerFields(attendee) {
+    if (!('partner' in attendee) || attendee.partner === null) {
+        return;
+    }
+
+    if (attendee.partner.rsvp === null) {
+        $('.prompt.partner label').filter('.col-form-label').html(
+            'Would you like to RSVP for ' + attendee.partner.first + '?');
+        showField('partner', attendee.partner, 'respondFor');
+    }
+
+    if (attendee.partner.respondFor === false) {
+        $('.prompt.partnerRSVP').hide();
+        $('.prompt.partnerEntree').hide();
+        return;
+    }
+
+    if (attendee.partner.respondFor === true) {
+        $('.prompt.partnerRSVP label').filter('.col-form-label').html(
+            'Will ' + attendee.partner.first + ' be able to attend?');
+        showField('partnerRSVP', attendee.partner, 'rsvp');
+    }
+
+    if (!('respondFor' in attendee.partner) && attendee.partner.rsvp !== null) {
+        $('.prompt.partnerRSVP label').filter('.col-form-label').html(
+            'Will ' + attendee.partner.first + ' be able to attend?');
+        showField('partnerRSVP', attendee.partner, 'rsvp');
+    }
+
+    if (attendee.partner.rsvp === true) {
+        $('.prompt.partnerEntree label').filter('.col-form-label').html(
+            attendee.partner.first + "'s dinner entre\u00e9:");
+        showField('partnerEntree', attendee.partner, 'entree');
+    }
 }
 
 function showFields(attendee) {
@@ -90,6 +137,9 @@ function showFields(attendee) {
         $('.prompt.brunch').hide();
         $('.prompt.guest').hide();
         $('.prompt.guestEntree').hide();
+        $('.prompt.partnerRSVP').hide();
+        $('.prompt.partnerEntree').hide();
+        showPartnerFields(attendee);
         return;
     }
 
@@ -107,6 +157,8 @@ function showFields(attendee) {
             $('.prompt.guestEntree').hide();
         }
     }
+
+    showPartnerFields(attendee);
 }
 
 function resetForm() {
@@ -172,6 +224,26 @@ $(document).ready(function() {
             attendee.guest = true;
         } else {
             attendee.guest = false;
+        }
+        showFields(attendee);
+    });
+
+    $('.prompt.partner').find('.btn').on('click', function() {
+        var $input = $(this).find('input');
+        if ($input.val() === 'yes') {
+            attendee.partner.respondFor = true;
+        } else {
+            attendee.partner.respondFor = false;
+        }
+        showFields(attendee);
+    });
+
+    $('.prompt.partnerRSVP').find('.btn').on('click', function() {
+        var $input = $(this).find('input');
+        if ($input.val() === 'yes') {
+            attendee.partner.rsvp = true;
+        } else {
+            attendee.partner.rsvp = false;
         }
         showFields(attendee);
     });
