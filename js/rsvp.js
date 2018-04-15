@@ -4,6 +4,11 @@ var STATE_ENUM = {
     UPDATE: 'Update invitation'
 };
 
+var API_URL = '<URL>';
+var API_KEY = '<KEY>';
+var attendee = null;
+
+
 function checkFields() {
     var $fields = $('.prompt');
     $fields.each(function() {
@@ -47,14 +52,13 @@ function submitAttendee(attendee, success_func) {
         data[formData[i].name] = formData[i].value;
     }
 
-    if ('partner' in data) {
+    if ('partner' in data || 'partnerRSVP' in data) {
         if (data.partner === 'no') {
             delete data.partnerRSVP;
             delete data.partnerEntree;
-        } else {
-            data.partnerFirst = attendee.partner.first;
-            data.partnerLast = attendee.partner.last;
         }
+        data.partnerFirst = attendee.partner.first;
+        data.partnerLast = attendee.partner.last;
         delete data.partner;
     }
 
@@ -126,6 +130,8 @@ function showPartnerFields(attendee) {
         $('.prompt.partnerEntree label').filter('.col-form-label').html(
             attendee.partner.first + "'s dinner entre\u00e9:");
         showField('partnerEntree', attendee.partner, 'entree');
+    } else {
+        $('.prompt.partnerEntree').hide();
     }
 }
 
