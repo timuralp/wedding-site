@@ -134,3 +134,11 @@ form {
 .engagement-carousel {
     display: none;
 }
+
+.schedule-entry {
+    font-size: 1.25rem;
+}
+
+hr {
+    background-color: #e4e4e4;
+}
