@@ -6,8 +6,10 @@
         <link rel="stylesheet" href="/bootstrap-4.0.0-dist/css/bootstrap.min.css">
         <script src="/js/jquery-3.2.1.min.js"></script>
         <script src="/js/tether.min.js"></script>
+        <script src="/js/things_todo.js"></script>
         <script src="/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
         <link href="/css/cover.css" rel="stylesheet">
+        <link href="/css/things_todo.css" rel="stylesheet">
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
@@ -45,9 +47,228 @@
                         <h1 class="text-center">What's there to do in San Francisco?</h1>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-6 text-center offset-lg-3">
-                        <p>Please check back later.</p>
+                <div class="row mb-5">
+                    <div class="col-md-2 text-center offset-md-3">
+                        <button id="sightsBtn" class="btn btn-secondary active" type="button" data-carousel="sights"><h3 class="heading mb-0">Sights</h3></button>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <button id="foodBtn" class="btn btn-secondary" type="button" data-carousel="food"><h3 class="heading mb-0">Food</h3></button>
+                    </div>
+                     <div class="col-md-2 text-center">
+                        <button id="nightlifeBtn" class="btn btn-secondary" type="button" data-carousel="nightlife"><h3 class="heading mb-0">Nightlife</h3></button>
+                    </div>
+                </div>
+
+                <div class="row sights-carousel">
+                    <div class="col-lg-8  offset-lg-2 mb-4">
+                        <div id="sightsCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/gg-bridge.jpg">
+                                    <div class="carousel-caption darker">
+                                        <h3>Golden Gate Bridge</h3>
+                                        <p>San Francisco's iconic landmark and one
+                                        of our favorite sights on a clear day. The
+                                        best viewing spots for the bridge are from
+                                        the trail along Crissy Field, China Beach,
+                                        and the Land's End trail.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/gg-park.jpg">
+                                  <div class="carousel-caption darker">
+                                     <h3>Golden Gate Park</h3>
+                                     <p>Did you know that San Francisco's Golden
+                                     Gate park is home to 6 bison? California Academy of
+                                     Science (where we met!), De Young
+                                     Museum, Japanese Tea Garden, Botanical Gardens, and
+                                     Conservatory of Flowers are all also in the
+                                     park.</p>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/pier39.jpg">
+                                  <div class="carousel-caption darker">
+                                     <h3>Fisherman's Wharf/Pier 39</h3>
+                                     <p>This area is usually crowded on
+                                     weekends, as there are a lot of tourists,
+                                     street performers, variety of seafood, and
+                                     other things going on. However, the sea
+                                     lions are a neat feature of the city and can be
+                                     seen lounging around on the pier.
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/moma.jpg">
+                                  <div class="carousel-caption darker">
+                                    <h3>San Francisco Museum of Modern Art</h3>
+                                    <p>SF MOMA reopened in 2016 to be one of the
+                                    largest museums of modern art in the world.</p>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/lombard.jpg">
+                                  <div class="carousel-caption darker">
+                                    <h3>Lombard St.</h3>
+                                    <p>The iconic windy street. It is close to
+                                    pier 39, but you have to climb a small hill
+                                    to get to this section.
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/ferry_bldg.jpg">
+                                  <div class="carousel-caption darker">
+                                    <h3>Ferry building</h3>
+                                    <p>A lively mall for local merchants
+                                    and the place to catch a ferry. Venturing to
+                                    Sausalito makes for a nice trip across
+                                    the bay or you can get lunch followed by the
+                                    Humphry Slocombe Secret Breakfast ice cream.</p>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/exploratorium.jpg">
+                                  <div class="carousel-caption darker">
+                                    <h3>Exploratorium</h3>
+                                    <p>Indulge your curiosity by playing around
+                                    with numerous interactive exhibits at the
+                                    Exploratorium. Makes for great fun for kids
+                                    and adults alike!</p>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/alcatraz.jpg">
+                                  <div class="carousel-caption darker">
+                                    <h3>Alcatraz</h3>
+                                    <p>If you'd like to tour the old prison,
+                                    make sure to book your tickets a few months
+                                    in advance! Otherwise, takings the ferry
+                                    from Sausalito will give you a nice view on
+                                    its way to San Francisco.</p>
+                                  </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#sightsCarousel" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#sightsCarousel" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row food-carousel">
+                    <div class="col-lg-8  offset-lg-2 mb-4">
+                        <div id="foodCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/cinderella.jpg">
+                                    <div class="carousel-caption darker">
+                                        <h3><a class="caption-link" href="http://cinderellabakery.com">Cinderella Bakery</a></h3>
+                                        <p>One of our favorite hidden gems for Russian food. The bakery
+                                        has been serving San Francisco since 195. </p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/hklounge.jpg">
+                                  <div class="carousel-caption darker">
+                                     <h3><a class="caption-link" href="http://hongkonglounge.net">Hong Kong Lounge</a></h3>
+                                     <p>Our favorite place to grab dim sum (chao shu bao!) with friends and family. Hong
+                                     Kong Lounge II is also good, but the waits can be longer. As you can see, it can be
+                                     quite popular!</p>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/farmer.jpg">
+                                  <div class="carousel-caption darker">
+                                     <h3><a class="caption-link" href="http://www.farmerbrownsf.com">Farmer Brown</a></h3>
+                                     <p>Looking for fried chicken or southern food? This is one of our
+                                     favorite places to go.</p>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/arsicault.jpg">
+                                  <div class="carousel-caption darker">
+                                    <h3><a class="caption-link" href="https://www.bonappetit.com/city-guides/san-francisco/venue/arsicault-bakery">Arsicault Bakery</a></h3>
+                                    <p>Bon Appetit named Arsicault the best new bakery in the country in 2016
+                                    for their flaky, buttery, and scrumptious croissants. The croissants are
+                                    indeed amazing!</p>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/birite.jpg">
+                                  <div class="carousel-caption darker">
+                                    <h3>Bi-Rite Creamery</h3>
+                                    <p>Some of the best specialty ice cream in the city.
+                                    Earl grey ice cream is our favorite.</p>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/bobaguys.jpg">
+                                  <div class="carousel-caption darker">
+                                    <h3><a class="caption-link" href="http://www.bobaguys.com">Boba Guys</a></h3>
+                                    <p>One of our favorite boba (bubble tea) shops in the city.
+                                    The lines are long but worth the wait!</p>
+                                  </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#foodCarousel" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#foodCarousel" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row nightlife-carousel">
+                    <div class="col-lg-8  offset-lg-2 mb-4">
+                        <div id="nightlifeCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/urbanputt.jpg">
+                                    <div class="carousel-caption darker">
+                                        <h3><a class="caption-link" href="http://www.urbanputt.com">Urban Putt</a></h3>
+                                        <p>Indoor miniature golf + food + drinks = fun times for everyone.
+                                        It’s worth going to see the creative designs and to test your
+                                        skills at geometry! The entire 14 hole course fits inside the first floor of a
+                                        house.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/upcider.jpg">
+                                  <div class="carousel-caption darker">
+                                     <h3><a class="caption-link" href="http://www.upcidersf.com">Upcider</a></h3>
+                                     <p>A cider gastropub with about 20-30 different ciders that are
+                                     frequently rotated.</p>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <img class="d-block img-fluid rounded carousel-img" src="img/things_todo/mark.jpg">
+                                  <div class="carousel-caption darker">
+                                     <h3><a class="caption-link" href="http://www.intercontinentalmarkhopkins.com/top-of-the-mark.aspx">
+                                     Top of the Mark</a></h3>
+                                     <p>Located on the penthouse floor of the Intercontinental hotel,
+                                     it boasts a spectacular 360 view of the city. Come here at 4PM to
+                                     watch the sun set and grab a cocktail.</p>
+                                  </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#nightlifeCarousel" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#nightlifeCarousel" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
