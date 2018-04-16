@@ -1,0 +1,19 @@
+h5 {
+    font-family: 'sans-serif';
+}
+
+p {
+    text-shadow: none;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+.card-header {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.card-body {
+    padding-top: 0.25em;
+    padding-bottom: 0;
+}
