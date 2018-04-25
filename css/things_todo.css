@@ -11,3 +11,9 @@
 .caption-link:hover {
     color: #fff;
 }
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    .left-column {text-align: left;}
+    #sightsBtn {margin-bottom: 1rem;}
+    #foodBtn {margin-bottom: 1rem;}
+}
